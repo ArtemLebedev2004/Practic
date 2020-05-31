@@ -10,12 +10,16 @@ let personalMovieDB = {
     private: false
 };
 
-let watchedFilm = prompt('Один из последних просмотренных фильмов?');
-let markWatchedFilm = +prompt('Какая оценка этому фильму?');
-let watchedFilm2 = prompt('Один из последних просмотренных фильмов?');
-let markWatchedFilm2 = +prompt('Какая оценка этому фильму?');
+for (let i = 0; i < 2; i++) {
+    let watchedFilm = prompt('Один из последних просмотренных фильмов?', ''),
+        markWatchedFilm = +prompt('Какая оценка этому фильму?', '');
 
-personalMovieDB.movies[watchedFilm] = markWatchedFilm;
-personalMovieDB.movies[watchedFilm2] = markWatchedFilm2;
+    if (watchedFilm != null && markWatchedFilm != null && watchedFilm != '' && markWatchedFilm != '' && watchedFilm.length <= 50 && markWatchedFilm <= 50) {
+        personalMovieDB.movies[watchedFilm] = markWatchedFilm;
+    } else {
+        watchedFilm = prompt('Один из последних просмотренных фильмов?', ''),
+        markWatchedFilm = +prompt('Какая оценка этому фильму?', '');
+    }
+}
 
 console.log(personalMovieDB);
